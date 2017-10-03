@@ -17,6 +17,7 @@ CTF-pwn-tips
 * [Hijack hook function](#hijack-hook-function)
 * [Use printf to trigger malloc and free](#use-printf-to-trigger-malloc-and-free)
 * [Use execveat to open a shell](#use-execveat-to-open-a-shell)
+* [Compiler security](#compiler-security)
 
 
 ## Overflow
@@ -479,3 +480,9 @@ According to its [man page](http://man7.org/linux/man-pages/man2/execveat.2.html
 > If pathname is absolute, then dirfd is ignored.
 
 Hence, if we make `pathname` point to `"/bin/sh"`, and set `argv`, `envp` and `flags` to 0, we can still get a shell whatever the value of `dirfd`.
+
+
+### compiler-security
+```c
+clang -fstack-protector -fpie -pie -s -Wl,-z,relro,-z,now  test.c -o test
+```
