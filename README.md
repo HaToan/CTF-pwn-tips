@@ -492,7 +492,8 @@ end of fastbin. control point and malloc arbitrarily to control_point with **sui
 
 ### unsortbin
 * one of by: fake chuck - unlink () 
-```array       = 0x602108
+```
+array       = 0x602108		# &addr contain chuck fake
 fd          = array - (3*8)
 bk          = array - (2*8)
 
