@@ -25,7 +25,7 @@ CTF-pwn-tips
 Assume that: `char buf[40]` and `signed int num`
 
 ### scanf
-
+* not write - +
 * `scanf("%s", buf)`
     * `%s` doesn't have boundary check.
     * **pwnable**
