@@ -87,7 +87,7 @@ E.g.
 Assume that there is another buffer: `char buf2[60]`
 
 * `strcpy(buf, buf2)`
-    * No boundary check.
+    * No boundary check.
     * It copies the content of buf2(until reaching NULL byte) which may be longer than `length(buf)` to buf.
     * Therefore, it may happen overflow.
     * **pwnable**
@@ -102,6 +102,7 @@ Assume that there is another buffer: `char buf2[60]`
 Assume that there is another buffer: `char buf2[60]`
 
 * `strcat(buf, buf2)`
+    * put NULL byte at the end.
     * Of course, it may cause **overflow** if `length(buf)` isn't large enough.
     * It puts NULL byte at the end, it may cause **one-byte-overflow**.
     * In some cases, we can use this NULL byte to change stack address or heap address.
